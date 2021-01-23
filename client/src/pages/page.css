@@ -1,0 +1,61 @@
+
+.band {
+    font-size: 60px;
+    color: greenyellow;
+
+}
+.para {
+    font-size: 30px;
+    color: wheat;
+}
+.vitrine {
+    position: absolute;
+    top: 250px;
+    left: 100px;
+}
+/* .home{
+    color: blue;
+    background:url('https://image.flaticon.com/icons/png/512/123/123443.png') ;
+} */
+.homeLog{
+    height: 115vh;
+    width: 100%;
+    background:url(../video/home.png);
+
+    background-size: cover;
+}
+@media screen and (max-width: 990px) {
+    .stade {
+        display: none;
+    }
+
+    .logi {
+        text-align: center;
+    }
+    .band {
+        font-size: 30px;
+    }
+    .para {
+        font-size: 15px;
+    }
+    .vitrine {
+        top: 120px;
+        left: 50px;
+    }
+}
+@media screen and (max-width: 470px) {
+
+    .band {
+        font-size: 20px;
+    }
+
+    .para {
+        font-size: 15px;
+    }
+
+    .vitrine {
+        top: 80px;
+        left: 40px;
+    }
+}
+
