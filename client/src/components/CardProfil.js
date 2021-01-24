@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { deleteMyMatchs } from "../action/matchAction";
 import { loadAlluser } from "../action/authAction";
 import Modal from "react-modal";
-
+import { editUser } from "../action/authAction";
+import axios from "axios";
 const customStyles = {
   content: {
     top: "50%",
@@ -19,6 +20,9 @@ const customStyles = {
 const CardProfil = ({ auth, myMatch }) => {
   const dispatch = useDispatch();
 
+  const [file, setFile] = useState(null);
+  const [btnName, setBtnName] = useState("change photo");
+
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
@@ -29,6 +33,8 @@ const CardProfil = ({ auth, myMatch }) => {
   const history = useHistory();
   const img = document.getElementById("imgAva");
   const camera = document.querySelector(".kiki");
+  const imageName = document.querySelector("#imageName");
+  const inputAvatar = document.querySelector("#avatar");
 
   {
     img && (img.onmouseover = () => camera.classList.add("noVis"));
@@ -39,7 +45,27 @@ const CardProfil = ({ auth, myMatch }) => {
         camera.style.cursor = "pointer";
       });
     img && (camera.onmouseout = () => camera.classList.remove("noVis"));
+    inputAvatar &&
+      (inputAvatar.onchange = (e) => {
+        {
+          e.target.files[0] && setBtnName("Ajouter :" + e.target.files[0].name);
+        }
+      });
   }
+
+  const selectImage = (e) => {
+    setFile(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
+  const imageUpdate = () => {
+    // dispatch(editUser(info));
+    let formData = new FormData();
+    formData.append("avatar", file);
+    axios.post("/img", formData).then((res) => {
+      dispatch(editUser({ avatar: res.data.imageName }));
+      console.log("res.data.imageName", res.data.imageName);
+    });
+  };
 
   return (
     <div
@@ -51,11 +77,29 @@ const CardProfil = ({ auth, myMatch }) => {
           id="imgAva"
           src={auth.user && auth.user.avatar}
           className="card-img-top border border-success m-auto"
-          style={{ maxWidth: "200px" }}
+          style={{ width: "200px", height: "200px" }}
           alt="..."
         />
         <span className="position-absolute  kiki bg bg-light ">
-          <i class="fas fa-camera-retro"></i>
+          <input
+            type="file"
+            className="form-control"
+            placeholder="password"
+            onChange={selectImage}
+            name="avatar"
+            id="avatar"
+            style={{ display: "none" }}
+          />
+          <label htmlFor="avatar">
+            <i class="fas fa-camera-retro" style={{ cursor: "pointer" }}></i>
+          </label>
+          <button
+            id="imageName"
+            onClick={imageUpdate}
+            className="badge badge-warning"
+          >
+            &nbsp;{btnName}
+          </button>
         </span>
       </div>
 
