@@ -18,6 +18,29 @@ transform: scale(1.1);
     width: 50% ;
     height: 200px;
 }
+.kiki {
+    top: 175px;
+    padding: 3px;
+    left: 165px;
+    visibility: hidden;
+    cursor: pointer;
+    z-index: 10;
+
+
+}
+
+.noVis {
+    visibility: visible
+}
+
+.bdr {
+    margin: 0;
+    padding: 0;
+}
+
+.cami:hover {
+    transform: scale(1.3);
+}
 @media screen and (max-width: 992px) {
 .imgPub {
     width: 50%;
@@ -27,22 +50,14 @@ transform: scale(1.1);
      max-width: 140px;
      height: 100px;
  }
-}
-.kiki{
-top:175px;
-    padding: 3px;
-    left: 180px;
-     visibility:hidden;
-        cursor: pointer;
-        z-index: 10;
+    .kiki {
+        top: 175px;
+        left: 65px;
 
-
+    }
 }
-.noVis{
-        visibility:visible
-
-}
-.bdr{
-    margin: 0;
-    padding: 0;
+@media screen and (max-width: 768) {
+ .kiki {
+     top: 175px;
+ }
 }

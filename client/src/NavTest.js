@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "./action/authAction";
 import Icon from "./components/Icon";
-import Notif from "./components/Notif";
 
 const NavTest = () => {
   const auth = useSelector((state) => state.AuthReducer);

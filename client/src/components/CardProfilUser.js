@@ -56,7 +56,7 @@ const CardProfilUser = ({ auth }) => {
           >
             {!auth.user.notif.includes(myMatch[0]._id) ? (
               <span>
-                inviter le<i class="fas fa-user-plus"></i>
+                Inviter le <i class="fas fa-user-plus"></i>
               </span>
             ) : (
               <span>

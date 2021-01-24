@@ -21,7 +21,7 @@ const CardProfil = ({ auth, myMatch }) => {
   const dispatch = useDispatch();
 
   const [file, setFile] = useState(null);
-  const [btnName, setBtnName] = useState("change photo");
+  const [btnName, setBtnName] = useState("click camera change photo");
 
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
@@ -57,13 +57,14 @@ const CardProfil = ({ auth, myMatch }) => {
     setFile(e.target.files[0]);
     console.log(e.target.files[0]);
   };
+  // update image
   const imageUpdate = () => {
-    // dispatch(editUser(info));
     let formData = new FormData();
     formData.append("avatar", file);
     axios.post("/img", formData).then((res) => {
       dispatch(editUser({ avatar: res.data.imageName }));
       console.log("res.data.imageName", res.data.imageName);
+      setBtnName("Click camera change photo");
     });
   };
 
@@ -91,14 +92,18 @@ const CardProfil = ({ auth, myMatch }) => {
             style={{ display: "none" }}
           />
           <label htmlFor="avatar">
-            <i class="fas fa-camera-retro" style={{ cursor: "pointer" }}></i>
+            <i
+              class="fas fa-camera-retro cami"
+              style={{ cursor: "pointer" }}
+            ></i>
           </label>
+          &nbsp;
           <button
             id="imageName"
             onClick={imageUpdate}
             className="badge badge-warning"
           >
-            &nbsp;{btnName}
+            {btnName}
           </button>
         </span>
       </div>
