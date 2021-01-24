@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getMatchs } from "../action/matchAction";
 import { loadUser } from "../action/authAction";
 import CardMatch from "../components/CardMatch";
-
+import addMatch from "../video/addMatch.png";
 const Matchs = () => {
   const [allMatch, setAllMatch] = useState([]);
   const [info, setInfo] = useState({ val: "" });
@@ -35,14 +35,17 @@ const Matchs = () => {
         />
       </div>
       <div className="row text-center ">
-        <div
+        <figure
           className="card mt-1 mx-auto text-center"
           style={{ width: "15rem", minHeight: "100px" }}
         >
           <Link to="/createMatch">
-            <button>Create Your Match</button>
+            <img src={addMatch} style={{ width: "15rem" }} />
           </Link>
-        </div>
+          <figcaption className="btn btn-warning m-2">
+            créer votre match
+          </figcaption>
+        </figure>
         {allMatch.length ? (
           allMatch
             .filter((el) =>

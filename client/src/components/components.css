@@ -28,3 +28,21 @@ transform: scale(1.1);
      height: 100px;
  }
 }
+.kiki{
+top:175px;
+    padding: 3px;
+    left: 180px;
+     visibility:hidden;
+        cursor: pointer;
+        z-index: 10;
+
+
+}
+.noVis{
+        visibility:visible
+
+}
+.bdr{
+    margin: 0;
+    padding: 0;
+}

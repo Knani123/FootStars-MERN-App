@@ -27,18 +27,38 @@ const CardProfil = ({ auth, myMatch }) => {
     setIsOpen(false);
   }
   const history = useHistory();
+  const img = document.getElementById("imgAva");
+  const camera = document.querySelector(".kiki");
+
+  {
+    img && (img.onmouseover = () => camera.classList.add("noVis"));
+    img && (img.onmouseout = () => camera.classList.remove("noVis"));
+    camera &&
+      (camera.onmouseover = () => {
+        camera.classList.add("noVis");
+        camera.style.cursor = "pointer";
+      });
+    img && (camera.onmouseout = () => camera.classList.remove("noVis"));
+  }
 
   return (
     <div
-      className="card text-center col-sm-12 col-md-6 col-lg-6 m-auto"
+      className="card text-center col-sm-12 col-md-6 col-lg-6 m-auto "
       style={{ width: "15rem" }}
     >
-      <img
-        src={auth.user && auth.user.avatar}
-        className="card-img-top border border-success m-auto"
-        style={{ maxWidth: "200px" }}
-        alt="..."
-      />
+      <div className="position-relative bdr">
+        <img
+          id="imgAva"
+          src={auth.user && auth.user.avatar}
+          className="card-img-top border border-success m-auto"
+          style={{ maxWidth: "200px" }}
+          alt="..."
+        />
+        <span className="position-absolute  kiki bg bg-light ">
+          <i class="fas fa-camera-retro"></i>
+        </span>
+      </div>
+
       <div className="card-body">
         <h5 className="card-title">
           {auth.user ? <> Player name: {auth.user.name}</> : <>wait ...</>}
