@@ -5,7 +5,7 @@ const Bgvideo = () => {
   return (
     <video
       className="bgVideo position-absolute rounded"
-      autoplay={1}
+      autoPlay={1}
       muted={1}
       loop
       id="myVideo"

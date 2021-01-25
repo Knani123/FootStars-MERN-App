@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { editUser } from "../action/authAction";
-import Notif from "./Notif";
 const TableUpdate = ({ skils, closeModal }) => {
   const dispatch = useDispatch();
-  const { poste, pied_fort, taille, poid, _id } = skils;
-  const [info, setInfo] = useState({ poste, pied_fort, taille, poid, _id });
+  const { poste, pied_fort, age, adress, phone, _id } = skils;
+  const [info, setInfo] = useState({
+    poste,
+    pied_fort,
+    age,
+    phone,
+    _id,
+    adress,
+  });
   const user = true;
   const handleInfo = (e) => {
     setInfo({ ...info, [e.target.id]: e.target.value });
@@ -59,27 +65,43 @@ const TableUpdate = ({ skils, closeModal }) => {
             </td>
           </tr>
           <tr>
-            <td>Taille</td>
+            <td>Age</td>
             <td>
               <input
                 type="number"
                 min="120"
                 max="220"
-                id="taille"
-                value={info.taille}
+                id="age"
+                value={info.age}
                 onChange={handleInfo}
               />
             </td>
           </tr>
           <tr>
-            <td>Poid</td>
+            <td>Phone</td>
             <td>
               <input
+                style={{ width: "190px" }}
                 type="number"
                 min="20"
                 max="250"
-                id="poid"
-                value={info.poid}
+                id="phone"
+                value={info.phone}
+                onChange={handleInfo}
+              />
+            </td>
+          </tr>
+          <tr>
+            {" "}
+            <td>Adress</td>
+            <td>
+              {" "}
+              <input
+                type="text"
+                min="20"
+                max="250"
+                id="adress"
+                value={info.adress}
                 onChange={handleInfo}
               />
             </td>

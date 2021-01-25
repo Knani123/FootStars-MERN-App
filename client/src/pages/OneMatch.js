@@ -7,7 +7,6 @@ import matchInfo from "../video/matchInfo.jpg";
 import Player from "../components/Player";
 import cancelled from "../video/cancelled.png";
 const OneMatch = () => {
-  const history = useHistory();
   const Auth = useSelector((state) => state.AuthReducer);
 
   const [owner, setOwner] = useState(null);
@@ -140,8 +139,8 @@ const OneMatch = () => {
                 <div className="d-flex flex-wrap justify-content-center">
                   {all
                     .filter((el) => oneMatch.participants.includes(el._id))
-                    .map((el) => (
-                      <Player el={el} />
+                    .map((el, i) => (
+                      <Player el={el} key={i} />
                     ))}
                 </div>
               </div>

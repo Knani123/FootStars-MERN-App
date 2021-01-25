@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addMatch, removeParti } from "../action/matchAction";
-import { editByidUser, loadAlluser } from "../action/authAction";
+import { addMatch } from "../action/matchAction";
+import { loadAlluser } from "../action/authAction";
 import build from "../video/build.PNG";
 import player from "../video/player.png";
 const MatchCreate = () => {
@@ -40,12 +40,6 @@ const MatchCreate = () => {
 
   if (errors) {
     if (errors[0].msg == "No error") {
-      // {
-      //   users.length &&
-      //     users.map((el) =>
-      //       dispatch(editByidUser(el._id, { notif: el.notif + 1 }))
-      //     );
-      // }
       setTimeout(() => history.push("/Matchs"), 2500);
     }
   }
@@ -91,8 +85,9 @@ const MatchCreate = () => {
           <option value="8">8/8</option>
         </select>
         {errors &&
-          errors.map((el) => (
+          errors.map((el, i) => (
             <h5
+              key={i}
               className={
                 errors[0].msg == "No error"
                   ? `alert alert-success text-center`

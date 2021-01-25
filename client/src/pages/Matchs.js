@@ -40,18 +40,23 @@ const Matchs = () => {
           style={{ width: "15rem", minHeight: "100px" }}
         >
           <Link to="/createMatch">
-            <img src={addMatch} style={{ width: "15rem" }} />
+            <img
+              src={addMatch}
+              style={{ width: "15rem" }}
+              alt="Ajouter Match"
+            />
+
+            <figcaption className="btn btn-warning m-2">
+              créer votre match
+            </figcaption>
           </Link>
-          <figcaption className="btn btn-warning m-2">
-            créer votre match
-          </figcaption>
         </figure>
         {allMatch.length ? (
           allMatch
             .filter((el) =>
               el.name.toUpperCase().includes(info.val.toUpperCase().trim())
             )
-            .map((el) => <CardMatch el={el} />)
+            .map((el, i) => <CardMatch el={el} key={i} />)
         ) : (
           <h1>wait....</h1>
         )}

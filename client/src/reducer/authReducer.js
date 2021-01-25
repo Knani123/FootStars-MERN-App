@@ -8,9 +8,7 @@ import {
   LOGOUT,
   LOAD_ALL_USERS,
   LOAD_ALL_USERS_FAIL,
-  EDIT_SUCCESS,
   EDIT_FAILD,
-  EDIT_ONLY_ID_SUCCESS,
 } from "../action/type";
 
 const initState = {

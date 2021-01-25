@@ -14,9 +14,11 @@ const CardUser = ({ el }) => {
         style={{ maxWidth: "150px" }}
       />
       <div className="card-body">
-        <h5 className="card-title">{el.name}</h5>
+        <h5 className="card-title">
+          {el.name.charAt(0).toUpperCase() + el.name.slice(1)}
+        </h5>
         <Link to={`/profil/${el._id}`} className="btn btn-primary">
-          {el.name}'s Prfofil
+          {el.name.charAt(0).toUpperCase() + el.name.slice(1)}'s Prfofil
         </Link>
       </div>
     </div>

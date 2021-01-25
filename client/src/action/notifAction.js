@@ -1,8 +1,8 @@
-import { SHOWIT } from "./type";
-export const notif = (not) => (dispatch) => {
+import { GET_USER_NOW } from "./type";
+export const getUserNow = (userNow) => (dispatch) => {
   dispatch({
-    type: SHOWIT,
-    payload: not,
+    type: GET_USER_NOW,
+    payload: userNow,
   });
 };
-export default notif;
+export default getUserNow;

@@ -1,11 +1,11 @@
-import { SHOWIT } from "../action/type";
-const initState = { tf: false, nota: "" };
-const NotifAction = (state = initState, action) => {
+import { GET_USER_NOW } from "../action/type";
+const initState = {};
+const UserNow = (state = initState, action) => {
   switch (action.type) {
-    case SHOWIT:
+    case GET_USER_NOW:
       return { ...state, ...action.payload };
     default:
       return state;
   }
 };
-export default NotifAction;
+export default UserNow;

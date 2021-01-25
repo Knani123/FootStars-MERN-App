@@ -35,7 +35,9 @@ router.post(
               ...req.body,
               poste: "Quel est votre poste  ?  ",
               pied_fort: "Quel est votre pied fort?",
-
+              age: 17,
+              phone: 9999999999,
+              adress: "Tunis",
               notification: 1,
               avatar: `https://randomuser.me/api/portraits/men/${Math.floor(
                 Math.random() * 99

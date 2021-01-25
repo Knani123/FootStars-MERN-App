@@ -18,7 +18,7 @@ export const EDIT_SUCCESS = "EDIT_SUCCESS";
 export const EDIT_FAILD = "EDIT_FAILD";
 
 //notif
-export const SHOWIT = "SHOWIT";
+export const GET_USER_NOW = "GET_USER_NOW";
 
 //MATCHS
 export const GET_MATCH = "GET_MATCH";

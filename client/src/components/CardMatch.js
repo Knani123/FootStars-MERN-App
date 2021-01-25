@@ -15,9 +15,9 @@ const CardMatch = ({ el }) => {
         alt="..."
       />
       <div className="card-body">
-        <h5 className="card-title">
+        <div className="card-title">
           {el.name ? <h5>{el.name}</h5> : <h5>wait ...</h5>}
-        </h5>
+        </div>
         <p className="card-text">{el.begin}</p>
         <Link
           to={el._id ? `/Matchs/${el._id}` : "/match"}

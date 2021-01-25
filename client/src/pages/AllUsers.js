@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { loadAlluser } from "../action/authAction";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { notif } from "../action/notifAction";
 import CardUser from "../components/CardUser";
 
 const AllUsers = () => {
@@ -10,11 +9,8 @@ const AllUsers = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(notif({ tf: false }));
-  }, []);
-
   const Auth = useSelector((state) => state.AuthReducer);
+  const UserNow = useSelector((state) => state.UserNow);
   useEffect(() => {
     dispatch(loadAlluser());
   }, []);
@@ -43,10 +39,14 @@ const AllUsers = () => {
         <div className="row text-center ">
           {Auth.user.length ? (
             Auth.user
-              .filter((el) =>
-                el.name.toUpperCase().includes(info.val.toUpperCase().trim())
+              .filter(
+                (el) =>
+                  el.name
+                    .toUpperCase()
+                    .includes(info.val.toUpperCase().trim()) &&
+                  el._id != UserNow._id
               )
-              .map((el) => <CardUser el={el} />)
+              .map((el, i) => <CardUser el={el} key={i} />)
           ) : (
             <h1>Wait ...</h1>
           )}

@@ -5,9 +5,6 @@ import {
   EDIT_PARTI,
   ADD_MATCH_FAIL,
   GET_MYMATCH,
-  GET_MYMATCH_FAIL,
-  DELETE_MYMATCH,
-  DELETE_MYMATCH_FAIL,
 } from "../action/type";
 const initState = [];
 

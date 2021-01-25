@@ -8,7 +8,6 @@ import {
   LOGOUT,
   LOAD_ALL_USERS,
   LOAD_ALL_USERS_FAIL,
-  EDIT_SUCCESS,
   EDIT_FAILD,
   ONE_USER,
   ONE_USER_FAIL,
@@ -30,7 +29,6 @@ export const registerUser = (info) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err);
       dispatch({
         type: REGISTER_FAILD,
         payload: err.response.data.errors,
@@ -132,14 +130,12 @@ export const editByidUser = (id, info) => (dispatch) => {
   axios
     .put(`/login/user/not/${id}`, info)
     .then((res) => {
-      console.log("res nota", res);
       dispatch({
         type: EDIT_BY_ID_SUCCESS,
         payload: res.data,
       });
     })
     .catch((err) => {
-      console.log(err.message);
       dispatch({
         type: EDIT_BY_ID_FAIL,
         payload: err.response,
@@ -151,14 +147,12 @@ export const editOnlyidUser = (id, info) => (dispatch) => {
   axios
     .put(`/login/user/${id}`, info)
     .then((res) => {
-      console.log("res only", res);
       dispatch({
         type: EDIT_ONLY_ID_SUCCESS,
         payload: res.data,
       });
     })
     .catch((err) => {
-      console.log(err.message);
       dispatch({
         type: EDIT_BY_ID_FAIL,
         payload: err.response,

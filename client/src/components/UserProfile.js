@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams, useLocation } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { loadAlluser } from "../action/authAction";
 import CardProfilUser from "./CardProfilUser";
 import TableSkills from "./TableSkills";
-
-import { getMyMatchs } from "../action/matchAction";
 
 const UserProfile = () => {
   const params = useParams();

@@ -29,20 +29,34 @@ const TableSkills = ({ auth, edit }) => {
       {auth.user ? (
         <table className="table">
           <tr>
-            <td>Poste</td>
+            <td>
+              <i className="fas fa-puzzle-piece"> </i> Poste
+            </td>
             <td>{auth.user.poste}</td>
           </tr>
           <tr>
-            <td>Pied fort </td>
+            <td>
+              <i className="fas fa-dumbbell"></i> Pied fort{" "}
+            </td>
             <td>{auth.user.pied_fort}</td>
           </tr>
           <tr>
-            <td>Taille</td>
-            <td>{auth.user.taille}</td>
+            <td>
+              <i className="fas fa-birthday-cake"></i> Age
+            </td>
+            <td>{auth.user.age}</td>
           </tr>
           <tr>
-            <td>Poid</td>
-            <td>{auth.user.poid}</td>
+            <td>
+              <i className="fas fa-mobile-alt"></i> Phone
+            </td>
+            <td>{auth.user.phone}</td>
+          </tr>
+          <tr>
+            <td>
+              <i className="fas fa-map-marker-alt"></i> Adress
+            </td>
+            <td>{auth.user.adress}</td>
           </tr>
           <tr>
             <td></td>
@@ -50,7 +64,7 @@ const TableSkills = ({ auth, edit }) => {
               {edit && (
                 <div>
                   <button className="btn btn-warning " onClick={openModal}>
-                    Edit
+                    Modifier
                   </button>{" "}
                   <Modal
                     isOpen={modalIsOpen}

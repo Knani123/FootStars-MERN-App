@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "./action/authAction";
@@ -10,10 +10,10 @@ const NavTest = () => {
   const dispatch = useDispatch();
   return (
     <div className="sticky-top">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light alert-secondary">
         <NavLink
           exact
-          className="navbar-brand"
+          className="navbar-brand text-info font-italic font-wright-bold "
           to="/"
           activeStyle={{ color: "green" }}
         >
@@ -37,7 +37,7 @@ const NavTest = () => {
               <>
                 <li className="nav-item active">
                   <NavLink
-                    className="nav-link"
+                    className="nav-link font-weight-bold alert-info btn m-1 border border-dark"
                     to="/profil"
                     activeStyle={{ color: "green" }}
                   >
@@ -46,7 +46,7 @@ const NavTest = () => {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    className="nav-link"
+                    className="nav-link font-weight-bold alert-danger btn m-1 border border-dark"
                     to="/allUsers"
                     activeStyle={{ color: "green" }}
                   >
@@ -59,10 +59,10 @@ const NavTest = () => {
             <li className="nav-item">
               <NavLink
                 activeStyle={{ color: "green" }}
-                className="nav-link "
+                className="nav-link font-weight-bold alert-success btn m-1 border border-dark"
                 to="/Matchs"
-                tabindex="-1"
-                aria-disabled="flase"
+                tabIndex="-1"
+                aria-disabled={false}
               >
                 Matchs
               </NavLink>
@@ -86,7 +86,7 @@ const NavTest = () => {
                 </Link>
               </>
             ) : (
-              <Link className=" me-2">
+              <Link className=" me-2" to="/">
                 <button
                   onClick={() => {
                     dispatch(logOut());

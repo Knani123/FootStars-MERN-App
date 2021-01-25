@@ -11,7 +11,6 @@ import {
   EDIT_PARTI_FAIL,
   GET_MYMATCH,
   GET_MYMATCH_FAIL,
-  DELETE_MYMATCH,
   DELETE_MYMATCH_FAIL,
 } from "./type";
 export const getMatchs = () => (dispatch) => {

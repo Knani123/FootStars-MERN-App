@@ -12,8 +12,7 @@ const Notif = () => {
   useEffect(() => {
     dispatch(loadUser());
   }, [auth.user.notif]);
-  console.log("myUser", auth);
-  console.log("myUser", myUser);
+
   return <h1>{myUser ? myUser.notif : "notification"}</h1>;
 };
 

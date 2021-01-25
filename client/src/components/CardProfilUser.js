@@ -25,7 +25,16 @@ const CardProfilUser = ({ auth }) => {
 
       <div className="card-body">
         <h5 className="card-title">
-          {auth.user ? <> Player name: {auth.user.name}</> : <>wait ...</>}
+          {auth.user ? (
+            <>
+              <i className="fas fa-signature"></i>{" "}
+              {auth.user.name &&
+                auth.user.name.charAt(0).toUpperCase() +
+                  auth.user.name.slice(1)}
+            </>
+          ) : (
+            <>wait ...</>
+          )}
         </h5>
         <p className="card-text">j'accepte tous les défis de Match</p>
         {myMatch[0] ? (

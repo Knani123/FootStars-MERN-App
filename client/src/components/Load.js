@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 const Load = () => {
   const history = useHistory();
-  console.log(history);
   useEffect(() => {
     setTimeout(() => {
       history.goBack();

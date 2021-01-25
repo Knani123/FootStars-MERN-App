@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./components.css";
 const bg = "hsla(120,100%,75%,0.3)";
 
-const HomeComponent = ({ name, src, link }) => {
+const HomeComponent = ({ name, src, link, alert }) => {
   return (
     <div className="col  compHome">
       <Link to={link} className="text-decoration-none">
@@ -13,10 +13,10 @@ const HomeComponent = ({ name, src, link }) => {
             cursor: "pointer",
             backgroundColor: `${bg}`,
           }}
-          title="none"
+          title={name}
         >
           <img src={src} alt={name} title={name} className="m-auto imageHome" />
-          <h5 className="text-center m-2 text-danger">{name}</h5>
+          <h5 className={`text-center m-2 alert ${alert}`}>{name}</h5>
         </div>
       </Link>
     </div>

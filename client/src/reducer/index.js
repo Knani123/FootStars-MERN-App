@@ -1,12 +1,12 @@
 import AuthReducer from "./authReducer";
-import NotifAction from "./notifReducer";
+import UserNow from "./notifReducer";
 import MatchReducer from "./matchReducer";
 import UserReducer from "./authReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   AuthReducer,
-  NotifAction,
+  UserNow,
   MatchReducer,
   UserReducer,
 });

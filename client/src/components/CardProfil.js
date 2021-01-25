@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteMyMatchs } from "../action/matchAction";
-import { loadAlluser } from "../action/authAction";
 import Modal from "react-modal";
 import { editUser } from "../action/authAction";
 import axios from "axios";
@@ -21,7 +20,7 @@ const CardProfil = ({ auth, myMatch }) => {
   const dispatch = useDispatch();
 
   const [file, setFile] = useState(null);
-  const [btnName, setBtnName] = useState("click camera change photo");
+  const [btnName, setBtnName] = useState("Click camera change photo");
 
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
@@ -33,29 +32,23 @@ const CardProfil = ({ auth, myMatch }) => {
   const history = useHistory();
   const img = document.getElementById("imgAva");
   const camera = document.querySelector(".kiki");
-  const imageName = document.querySelector("#imageName");
   const inputAvatar = document.querySelector("#avatar");
 
-  {
-    img && (img.onmouseover = () => camera.classList.add("noVis"));
-    img && (img.onmouseout = () => camera.classList.remove("noVis"));
-    camera &&
-      (camera.onmouseover = () => {
-        camera.classList.add("noVis");
-        camera.style.cursor = "pointer";
-      });
-    img && (camera.onmouseout = () => camera.classList.remove("noVis"));
-    inputAvatar &&
-      (inputAvatar.onchange = (e) => {
-        {
-          e.target.files[0] && setBtnName("Ajouter :" + e.target.files[0].name);
-        }
-      });
-  }
+  img && (img.onmouseover = () => camera.classList.add("noVis"));
+  img && (img.onmouseout = () => camera.classList.remove("noVis"));
+  camera &&
+    (camera.onmouseover = () => {
+      camera.classList.add("noVis");
+      camera.style.cursor = "pointer";
+    });
+  img && (camera.onmouseout = () => camera.classList.remove("noVis"));
+  inputAvatar &&
+    (inputAvatar.onchange = (e) => {
+      e.target.files[0] && setBtnName("Ajouter :" + e.target.files[0].name);
+    });
 
   const selectImage = (e) => {
     setFile(e.target.files[0]);
-    console.log(e.target.files[0]);
   };
   // update image
   const imageUpdate = () => {
@@ -63,7 +56,6 @@ const CardProfil = ({ auth, myMatch }) => {
     formData.append("avatar", file);
     axios.post("/img", formData).then((res) => {
       dispatch(editUser({ avatar: res.data.imageName }));
-      console.log("res.data.imageName", res.data.imageName);
       setBtnName("Click camera change photo");
     });
   };
@@ -93,7 +85,7 @@ const CardProfil = ({ auth, myMatch }) => {
           />
           <label htmlFor="avatar">
             <i
-              class="fas fa-camera-retro cami"
+              className="fas fa-camera-retro cami"
               style={{ cursor: "pointer" }}
             ></i>
           </label>
@@ -110,7 +102,17 @@ const CardProfil = ({ auth, myMatch }) => {
 
       <div className="card-body">
         <h5 className="card-title">
-          {auth.user ? <> Player name: {auth.user.name}</> : <>wait ...</>}
+          {auth.user ? (
+            <>
+              {" "}
+              <i className="fas fa-signature"></i>
+              {auth.user.name &&
+                auth.user.name.charAt(0).toUpperCase() +
+                  auth.user.name.slice(1)}
+            </>
+          ) : (
+            <>wait ...</>
+          )}
         </h5>
         <p className="card-text">j'accepte tous les défis</p>
         <Link
@@ -133,7 +135,7 @@ const CardProfil = ({ auth, myMatch }) => {
           }}
           className="btn btn-danger m-1"
         >
-          Cancel Your Match
+          Annuler votre match
         </button>
       </div>
       <div>

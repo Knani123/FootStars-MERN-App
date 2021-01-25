@@ -5,8 +5,6 @@ import { registerUser } from "../action/authAction";
 import Icon from "../components/Icon";
 import stade from "../video/stade.jpg";
 
-import registerPic from "../video/registerPic.jpg";
-
 const Register = () => {
   const auth = useSelector((state) => state.AuthReducer);
   const [errors, setErrors] = useState(null);
@@ -31,13 +29,9 @@ const Register = () => {
     setInfo({ ...info, [e.target.id]: e.target.value });
   };
   const registerNow = () => {
-    // e.preventDefault();
     dispatch(registerUser(info));
-    // clearInput();
   };
-  const clearInput = () => {
-    setInfo({ name: "", email: "", phone: "", password: "" });
-  };
+
   const handleFocus = () => {
     setErrors(null);
   };
@@ -109,8 +103,8 @@ const Register = () => {
               />
             </div>
             {errors &&
-              errors.map((el) => (
-                <h5 className="alert alert-danger text-center">
+              errors.map((el, i) => (
+                <h5 key={i} className="alert alert-danger text-center">
                   {el.param} {el.msg}
                 </h5>
               ))}
@@ -142,54 +136,6 @@ const Register = () => {
         </div>
       </div>
     </div>
-    // <div
-    //   style={{
-    //     background: `no-repeat  center  url(${registerPic})`,
-    //     backgroundSize: "cover",
-    //   }}
-    //   className="vh-100 d-flex flex-column align-items-center "
-    // >
-    //   <h1 className="text-center p-2 text-info">Register now !</h1>
-    //   <form className="d-flex flex-column w-75 " onSubmit={registerNow}>
-    //     <input
-    //       type="text"
-    //       id="name"
-    //       placeholder="name"
-    //       onChange={handleChange}
-    //       value={info.name}
-    //     />
-    //     <input
-    //       type="email"
-    //       id="email"
-    //       placeholder="email"
-    //       onChange={handleChange}
-    //       value={info.email}
-    //     />
-    //     <input
-    //       type="Number"
-    //       id="phone"
-    //       placeholder="phone"
-    //       onChange={handleChange}
-    //       value={info.phone}
-    //     />
-    //     <input
-    //       type="password"
-    //       id="password"
-    //       placeholder="password"
-    //       onChange={handleChange}
-    //       value={info.password}
-    //     />
-    //     {errors &&
-    //       errors.map((el) => (
-    //         <h5 className="alert alert-danger text-center">
-    //           {el.param} {el.msg}
-    //         </h5>
-    //       ))}
-    //     <button type="submit" className="btn btn-info w-25">
-    //       Register
-    //     </button>
-    //   </form>
-    // </div>
   );
 };
 
