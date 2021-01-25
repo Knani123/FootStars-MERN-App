@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CardUser = ({ el }) => {
   return (
     <div
-      className="card mt-1 mx-auto text-center shadow"
+      className="card mt-1 mx-auto text-center shadow cardUser"
       style={{ width: "15rem" }}
     >
       <img

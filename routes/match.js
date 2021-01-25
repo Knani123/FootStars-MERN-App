@@ -10,10 +10,7 @@ router.post(
   "/",
   AuthMiddleware,
   [
-    body(
-      "name",
-      "Name must contain only letters without spaces"
-    ).isAlphanumeric(),
+    body("name", "Name is empty! ").notEmpty().isLength({ min: 2, max: 20 }),
     body("format").notEmpty(),
     body("date").notEmpty(),
   ],

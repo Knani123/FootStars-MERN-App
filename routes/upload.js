@@ -23,7 +23,6 @@ router.post("/", upload.single("avatar"), (req, res) => {
     "/uploads/" +
     req.file.filename;
   let newImage = new Image({ imageName: path });
-  console.log(newImage);
   newImage
     .save()
     .then((img) => res.status(201).send(img))

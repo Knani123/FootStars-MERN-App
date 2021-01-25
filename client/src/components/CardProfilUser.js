@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editByidUser, editOnlyidUser } from "../action/authAction";
 import { useHistory } from "react-router-dom";
+import "./components.css";
 const CardProfilUser = ({ auth }) => {
   const history = useHistory();
   const [myMatch, setMyMatch] = useState([]);

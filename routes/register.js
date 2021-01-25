@@ -10,9 +10,7 @@ const User = require("../models/User");
 router.post(
   "/",
   [
-    body("name", "Name must contain only letters without spaces ")
-      .isAlpha()
-      .notEmpty(),
+    body("name", "Name is empty ! ").notEmpty().isLength({ min: 2, max: 20 }),
     body("email", "Please enter valid email").isEmail(),
     body("phone", "Phone's number is only numeric").isNumeric(),
     body("password", "Password must contain alphabitic and numeric ")

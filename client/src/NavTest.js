@@ -37,7 +37,7 @@ const NavTest = () => {
               <>
                 <li className="nav-item active">
                   <NavLink
-                    className="nav-link font-weight-bold alert-info btn m-1 border border-dark"
+                    className="nav-link navi font-weight-bold alert-info btn m-1 border border-dark"
                     to="/profil"
                     activeStyle={{ color: "green" }}
                   >
@@ -46,7 +46,7 @@ const NavTest = () => {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    className="nav-link font-weight-bold alert-danger btn m-1 border border-dark"
+                    className="nav-link navi font-weight-bold alert-danger btn m-1 border border-dark"
                     to="/allUsers"
                     activeStyle={{ color: "green" }}
                   >
@@ -59,7 +59,7 @@ const NavTest = () => {
             <li className="nav-item">
               <NavLink
                 activeStyle={{ color: "green" }}
-                className="nav-link font-weight-bold alert-success btn m-1 border border-dark"
+                className="nav-link navi font-weight-bold alert-success btn m-1 border border-dark"
                 to="/Matchs"
                 tabIndex="-1"
                 aria-disabled={false}
@@ -71,12 +71,12 @@ const NavTest = () => {
           <form className="form-inline my-2 my-lg-0">
             {!auth.isAuth ? (
               <>
-                <Link className=" me-2" to="/register">
+                <Link className=" me-2 navi" to="/register">
                   <button className="btn btn-outline-info me-2" type="submit">
                     Singup
                   </button>
                 </Link>
-                <Link className=" m-2" to="/login">
+                <Link className=" m-2 navi" to="/login">
                   <button
                     className="btn btn-outline-success me-2"
                     type="submit"
@@ -86,7 +86,7 @@ const NavTest = () => {
                 </Link>
               </>
             ) : (
-              <Link className=" me-2" to="/">
+              <Link className=" me-2 navi" to="/">
                 <button
                   onClick={() => {
                     dispatch(logOut());

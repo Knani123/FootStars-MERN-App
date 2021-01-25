@@ -5,6 +5,7 @@ import { getMatchs } from "../action/matchAction";
 import { loadUser } from "../action/authAction";
 import CardMatch from "../components/CardMatch";
 import addMatch from "../video/addMatch.png";
+import "./page.css";
 const Matchs = () => {
   const [allMatch, setAllMatch] = useState([]);
   const [info, setInfo] = useState({ val: "" });
@@ -36,7 +37,7 @@ const Matchs = () => {
       </div>
       <div className="row text-center ">
         <figure
-          className="card mt-1 mx-auto text-center"
+          className="card mt-1 mx-auto text-center figAdd"
           style={{ width: "15rem", minHeight: "100px" }}
         >
           <Link to="/createMatch">

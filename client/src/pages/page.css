@@ -21,6 +21,9 @@
 
     background-size: cover;
 }
+.figAdd:hover{
+    transform: scale(1.1);
+}
 @media screen and (max-width: 990px) {
     .stade {
         display: none;
