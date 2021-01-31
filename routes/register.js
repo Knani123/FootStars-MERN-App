@@ -36,9 +36,7 @@ router.post(
               age: 17,
               adress: "Tunis",
               notification: 1,
-              avatar: `https://randomuser.me/api/portraits/men/${Math.floor(
-                Math.random() * 99
-              )}.jpg`,
+              avatar: "http://localhost:8000/uploads/1612113710892-profile.jpg",
             });
             bcrypt.genSalt(10, (err, salt) => {
               if (err) {

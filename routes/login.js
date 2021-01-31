@@ -50,7 +50,6 @@ router.get("/", AuthMiddleware, (req, res) => {
     .select("-password -__v")
     .then((user) => res.status(200).send(user))
     .catch((err) => {
-      console.log(err);
       res.send(500).send({ msg: "Server Errors" });
     });
 });
@@ -60,7 +59,6 @@ router.get("/all", AuthMiddleware, (req, res) => {
     .select("-password -__v")
     .then((users) => res.status(200).send(users))
     .catch((err) => {
-      console.log(err);
       res.send(500).send({ msg: "Server Errors" });
     });
 });
@@ -74,7 +72,6 @@ router.put("/", AuthMiddleware, (req, res) => {
       User.findById(req.params.id)
         .then((user) => res.status(200).send(user))
         .catch((err) => {
-          console.log(err);
           res.send(500).send({ msg: "Server Errors" });
         });
     }

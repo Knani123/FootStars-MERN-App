@@ -14,3 +14,6 @@ code {
 .navi:hover{
   transform: scale(1.1);
 }
+.vavi{
+  display: none;
+}

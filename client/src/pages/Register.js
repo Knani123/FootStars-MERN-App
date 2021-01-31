@@ -4,7 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import { registerUser } from "../action/authAction";
 import Icon from "../components/Icon";
 import stade from "../video/stade.jpg";
-
+import "./page.css";
 const Register = () => {
   const auth = useSelector((state) => state.AuthReducer);
   const [errors, setErrors] = useState(null);
@@ -37,37 +37,38 @@ const Register = () => {
   };
   return (
     <div className="container-fluid logi">
-      <div className="row vh-100">
-        <div className="col-lg-5 bg-white p-5">
-          <header className="mx-3">
-            <h1>
-              <span className="font-weight-bold font-italic  mx-2">
-                <Link to="/" className="text-decoration-none">
-                  FootStars <Icon />
-                </Link>
-              </span>
+      <div className="row ">
+        <div className="col-lg-5 bg-white  p-5">
+          <header className="mx-3 mb-2">
+            <h1
+              className="font-weight-bold   m-auto text-center "
+              style={{ width: "400px" }}
+            >
+              <Link to="/" className="text-decoration-none">
+                FootStars <Icon />
+              </Link>
             </h1>
           </header>
-          <div className="mt-3 ">
+          <div className="mt-3 shadow-lg m-auto p-3" style={{ width: "400px" }}>
             <h2>Identifiez-vous</h2>
             <div className="form-group">
               <label htmlFor="name">Votre nom SVP !</label>
               <input
-                id="name"
-                className="form-control"
+                className="form-control fromR"
                 onFocus={handleFocus}
                 type="text"
                 id="name"
                 placeholder="name"
                 value={info.name}
                 onChange={handleChange}
+                style={{ width: "360px", height: "50px" }}
               />
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
-                id="email"
-                className="form-control"
+                className="form-control fromR"
+                style={{ width: "360px", height: "50px" }}
                 onFocus={handleFocus}
                 type="email"
                 id="email"
@@ -79,8 +80,8 @@ const Register = () => {
             <div className="form-group">
               <label htmlFor="phone">Phone</label>
               <input
-                id="phone"
-                className="form-control"
+                style={{ width: "360px", height: "50px" }}
+                className="form-control fromR"
                 onFocus={handleFocus}
                 type="Number"
                 id="phone"
@@ -92,8 +93,9 @@ const Register = () => {
             <div className="form-group">
               <label htmlFor="password">Mot de passe</label>
               <input
+                style={{ width: "360px", height: "50px" }}
                 id="password"
-                className="form-control"
+                className="form-control fromR"
                 onFocus={handleFocus}
                 type="password"
                 id="password"
@@ -110,9 +112,9 @@ const Register = () => {
               ))}
             <button
               type="submit"
-              className="btn btn-primary p-2 px-4"
+              className="btn btn-primary p-2 px-4 w-100"
               onClick={() => {
-                if (info.email && info.password != "") {
+                if (info.email && info.password !== "") {
                   registerNow();
                 } else {
                   alert("check your name and password");
@@ -121,7 +123,7 @@ const Register = () => {
             >
               connect
             </button>
-            <div class="m-3">
+            <div className="m-3">
               <p>
                 Vous avez deja un accès ?
                 <Link to="/login" className="text-success">
@@ -131,8 +133,12 @@ const Register = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-7 overflow-hidden stade">
-          <img src={stade} style={{ width: "120vh" }} />
+        <div className="col-lg-7 overflow-hidden stade vh-100 ">
+          <img
+            src={stade}
+            style={{ width: "100%", height: "100vh" }}
+            alt="stade image"
+          />
         </div>
       </div>
     </div>

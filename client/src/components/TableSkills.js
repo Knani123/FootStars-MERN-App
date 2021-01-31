@@ -24,10 +24,10 @@ const TableSkills = ({ auth, edit }) => {
     setIsOpen(false);
   }
   return (
-    <div className="col-sm-12 col-md-8 col-lg-6 w-75 m-auto">
+    <div className="col-sm-12 col-md-8 col-lg-6 w-75 m-auto  ">
       <h5 className="text-center">Player Skills </h5>
       {auth.user ? (
-        <table className="table">
+        <table className="table border">
           <tr>
             <td>
               <i className="fas fa-puzzle-piece"> </i> Poste

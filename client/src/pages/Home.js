@@ -18,13 +18,13 @@ const Home = () => {
   return (
     <div className="position-relative home ">
       {!auth.isAuth ? (
-        <>
+        <div>
           <Bgfoot2 />
           <Vitrine />
           <footer className="d-flex justify-content-center text-center fixed-bottom flex-wrap">
             <h5 className="w-100 m-auto p-5">All rights reserved © 2021</h5>
           </footer>
-        </>
+        </div>
       ) : (
         <div className="homeLog container d-flex justify-content-between align-items-center flex-column">
           <div className="p-5">

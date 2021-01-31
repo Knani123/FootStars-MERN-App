@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { editUser } from "../action/authAction";
 const TableUpdate = ({ skils, closeModal }) => {
@@ -13,12 +13,14 @@ const TableUpdate = ({ skils, closeModal }) => {
     adress,
   });
   const user = true;
+  const stableDispatch = useCallback(dispatch, []);
+
   const handleInfo = (e) => {
     setInfo({ ...info, [e.target.id]: e.target.value });
   };
 
   const handleConfirm = () => {
-    dispatch(editUser(info));
+    stableDispatch(editUser(info));
     setTimeout(() => {
       closeModal();
     }, 1500);

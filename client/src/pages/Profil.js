@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { loadUser } from "../action/authAction";
@@ -12,12 +12,13 @@ const Profil = () => {
   const auth = useSelector((state) => state.AuthReducer);
   const myMatch = useSelector((state) => state.MatchReducer);
   const history = useHistory();
+  const stableDispatch = useCallback(dispatch, []);
   useEffect(() => {
-    dispatch(loadUser());
-    dispatch(getMyMatchs());
+    stableDispatch(loadUser());
+    stableDispatch(getMyMatchs());
   }, []);
   useEffect(() => {
-    dispatch(getUserNow(auth.user));
+    stableDispatch(getUserNow(auth.user));
   }, [auth]);
   useEffect(() => {
     if (!auth.isAuth) {
@@ -25,9 +26,9 @@ const Profil = () => {
     }
   }, [auth.isAuth]);
   return (
-    <div className=" border border-info">
-      <div className="container">
-        <div className="row">
+    <div className="my-5 shadow">
+      <div className="container border">
+        <div className="row p-2">
           <CardProfil auth={auth} myMatch={myMatch} />
           <TableSkills auth={auth} edit={true} />
         </div>

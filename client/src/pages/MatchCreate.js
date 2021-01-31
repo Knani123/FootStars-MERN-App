@@ -39,7 +39,7 @@ const MatchCreate = () => {
   };
 
   if (errors) {
-    if (errors[0].msg == "No error") {
+    if (errors[0].msg === "No error") {
       setTimeout(() => history.push("/Matchs"), 2500);
     }
   }
@@ -89,7 +89,7 @@ const MatchCreate = () => {
             <h5
               key={i}
               className={
-                errors[0].msg == "No error"
+                errors[0].msg === "No error"
                   ? `alert alert-success text-center`
                   : `alert alert-danger text-center`
               }

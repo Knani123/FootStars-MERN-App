@@ -44,7 +44,7 @@ const AllUsers = () => {
                   el.name
                     .toUpperCase()
                     .includes(info.val.toUpperCase().trim()) &&
-                  el._id != UserNow._id
+                  el._id !== UserNow._id
               )
               .map((el, i) => <CardUser el={el} key={i} />)
           ) : (

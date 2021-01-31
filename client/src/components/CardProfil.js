@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteMyMatchs } from "../action/matchAction";
 import Modal from "react-modal";
 import { editUser } from "../action/authAction";
+import "./components.css";
 import axios from "axios";
 const customStyles = {
   content: {
@@ -20,7 +21,7 @@ const CardProfil = ({ auth, myMatch }) => {
   const dispatch = useDispatch();
 
   const [file, setFile] = useState(null);
-  const [btnName, setBtnName] = useState("Click camera change photo");
+  const [btnName, setBtnName] = useState("....");
 
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
@@ -29,11 +30,13 @@ const CardProfil = ({ auth, myMatch }) => {
   function closeModal() {
     setIsOpen(false);
   }
+  const stableDispatch = useCallback(dispatch, []);
+
   const history = useHistory();
+
   const img = document.getElementById("imgAva");
   const camera = document.querySelector(".kiki");
   const inputAvatar = document.querySelector("#avatar");
-
   img && (img.onmouseover = () => camera.classList.add("noVis"));
   img && (img.onmouseout = () => camera.classList.remove("noVis"));
   camera &&
@@ -55,22 +58,22 @@ const CardProfil = ({ auth, myMatch }) => {
     let formData = new FormData();
     formData.append("avatar", file);
     axios.post("/img", formData).then((res) => {
-      dispatch(editUser({ avatar: res.data.imageName }));
-      setBtnName("Click camera change photo");
+      stableDispatch(editUser({ avatar: res.data.imageName }));
+      setBtnName("...");
     });
   };
 
   return (
     <div
-      className="card text-center col-sm-12 col-md-6 col-lg-6 m-auto "
+      className=" text-center col-sm-12 col-md-6 col-lg-6 m-auto "
       style={{ width: "15rem" }}
     >
       <div className="position-relative bdr">
         <img
           id="imgAva"
           src={auth.user && auth.user.avatar}
-          className="card-img-top border border-success m-auto"
-          style={{ width: "200px", height: "200px" }}
+          className="border border-success m-auto"
+          style={{ maxWidth: "200px", maxHeight: "200px" }}
           alt="..."
         />
         <span className="position-absolute  kiki bg bg-light ">
@@ -104,7 +107,6 @@ const CardProfil = ({ auth, myMatch }) => {
         <h5 className="card-title">
           {auth.user ? (
             <>
-              {" "}
               <i className="fas fa-signature"></i>
               {auth.user.name &&
                 auth.user.name.charAt(0).toUpperCase() +
@@ -124,22 +126,28 @@ const CardProfil = ({ auth, myMatch }) => {
             }
           }}
           className="btn btn-success"
+          title="Voire votre match"
         >
-          Votre match
+          <i class="fas fa-info-circle"></i> Votre match
         </Link>
         <button
           onClick={() => {
-            dispatch(deleteMyMatchs());
+            stableDispatch(deleteMyMatchs());
             alert("Your match is deleted");
             history.push("/load");
           }}
           className="btn btn-danger m-1"
+          title="Annuler votre match"
         >
-          Annuler votre match
+          <i class="fas fa-window-close"></i> votre match
         </button>
       </div>
       <div>
-        <button onClick={openModal} className="btn btn-outline-info m-1">
+        <button
+          onClick={openModal}
+          className="btn btn-outline-info m-1"
+          title="Les invitations pour regoindre un match"
+        >
           Les invitations
         </button>
         <Modal

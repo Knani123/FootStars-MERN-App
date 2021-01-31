@@ -16,7 +16,7 @@ const UserProfile = () => {
     dispatch(loadAlluser());
   }, []);
   useEffect(() => {
-    setUser(auth.user.find((el) => el._id == params.id));
+    setUser(auth.user.find((el) => el._id === params.id));
   }, [auth]);
 
   useEffect(() => {

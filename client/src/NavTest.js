@@ -1,16 +1,32 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "./action/authAction";
 import Icon from "./components/Icon";
+import stadeLogo from "./video/stadeLogo.png";
 
 const NavTest = () => {
+  const location = useLocation();
   const auth = useSelector((state) => state.AuthReducer);
+  const myUser = useSelector((state) => state.UserNow);
+  console.log("myUser", myUser.name);
 
+  console.log(
+    location.pathname == "/register" || location.pathname == "/login"
+  );
   const dispatch = useDispatch();
   return (
-    <div className="sticky-top">
-      <nav className="navbar navbar-expand-lg navbar-light alert-secondary">
+    <div
+      className={`sticky-top ${
+        location.pathname == "/register" || location.pathname == "/login"
+          ? "vavi"
+          : "non"
+      }`}
+    >
+      <nav
+        className="navbar navbar-expand-lg navbar-light shadow bg-light"
+        style={{ padding: "5px" }}
+      >
         <NavLink
           exact
           className="navbar-brand text-info font-italic font-wright-bold "
@@ -37,20 +53,31 @@ const NavTest = () => {
               <>
                 <li className="nav-item active">
                   <NavLink
-                    className="nav-link navi font-weight-bold alert-info btn m-1 border border-dark"
+                    className="nav-link navi font-weight-bold alert-info btn m-1 rounded-pill"
                     to="/profil"
                     activeStyle={{ color: "green" }}
+                    style={{ padding: "5px" }}
                   >
-                    Profil <span className="sr-only">(current)</span>
+                    {myUser && (
+                      <img
+                        src={myUser.avatar}
+                        width="30px"
+                        style={{ borderRadius: "50%" }}
+                      />
+                    )}{" "}
+                    {myUser &&
+                      myUser.name.charAt(0).toUpperCase() +
+                        myUser.name.slice(1)}
+                    <span className="sr-only">(current)</span>
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    className="nav-link navi font-weight-bold alert-danger btn m-1 border border-dark"
+                    className="nav-link navi font-weight-bold alert-danger btn m-1 rounded-pill"
                     to="/allUsers"
                     activeStyle={{ color: "green" }}
                   >
-                    Players
+                    <i class="fas fa-users"></i> Players
                   </NavLink>
                 </li>
               </>
@@ -59,11 +86,17 @@ const NavTest = () => {
             <li className="nav-item">
               <NavLink
                 activeStyle={{ color: "green" }}
-                className="nav-link navi font-weight-bold alert-success btn m-1 border border-dark"
+                className="nav-link navi font-weight-bold alert-success btn m-1 rounded-pill"
                 to="/Matchs"
                 tabIndex="-1"
                 aria-disabled={false}
+                style={{ padding: "5px" }}
               >
+                <img
+                  src={stadeLogo}
+                  width="30px"
+                  style={{ borderRadius: "50%" }}
+                />{" "}
                 Matchs
               </NavLink>
             </li>
@@ -91,7 +124,7 @@ const NavTest = () => {
                   onClick={() => {
                     dispatch(logOut());
                   }}
-                  className="btn btn-danger"
+                  className="btn btn-danger logOutbtn"
                 >
                   logout
                 </button>

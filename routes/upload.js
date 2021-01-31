@@ -27,7 +27,6 @@ router.post("/", upload.single("avatar"), (req, res) => {
     .save()
     .then((img) => res.status(201).send(img))
     .catch((err) => {
-      console.error(err.message);
       res.status(500).send(err);
     });
 });

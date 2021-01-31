@@ -88,11 +88,9 @@ router.put("/:id", AuthMiddleware, (req, res) => {
       } else {
         Match.findById(req.params.id)
           .then((match) => {
-            console.log("req.body", req.body);
             res.status(200).send(match);
           })
           .catch((err) => {
-            console.log(err);
             res.send(500).send({ msg: "Server Errors" });
           });
       }
@@ -110,11 +108,9 @@ router.put("/parti/:id", AuthMiddleware, (req, res) => {
       } else {
         Match.findById(req.params.id)
           .then((match) => {
-            console.log("req.body", req.body);
             res.status(200).send(match);
           })
           .catch((err) => {
-            console.log(err);
             res.send(500).send({ msg: "Server Errors" });
           });
       }

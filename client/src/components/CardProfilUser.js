@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editByidUser, editOnlyidUser } from "../action/authAction";
 import { useHistory } from "react-router-dom";
@@ -7,10 +7,12 @@ const CardProfilUser = ({ auth }) => {
   const history = useHistory();
   const [myMatch, setMyMatch] = useState([]);
   const dispatch = useDispatch();
-  const mithou = useSelector((state) => state.MatchReducer);
+  const matchInit = useSelector((state) => state.MatchReducer);
   const UserReducer = useSelector((state) => state.UserReducer);
+  const stableDispatch = useCallback(dispatch, []);
+
   useEffect(() => {
-    setMyMatch(mithou);
+    setMyMatch(matchInit);
   }, [UserReducer.user]);
   return (
     <div
@@ -43,15 +45,15 @@ const CardProfilUser = ({ auth }) => {
             onClick={() => {
               {
                 !auth.user.notif.includes(myMatch[0]._id)
-                  ? dispatch(
+                  ? stableDispatch(
                       editByidUser(auth.user._id, {
                         notif: myMatch[0]._id,
                       })
                     )
-                  : dispatch(
+                  : stableDispatch(
                       editOnlyidUser(auth.user._id, {
                         notif: auth.user.notif.filter(
-                          (el) => el != myMatch[0]._id
+                          (el) => el !== myMatch[0]._id
                         ),
                       })
                     );

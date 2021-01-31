@@ -4,7 +4,7 @@ import "./components.css";
 const Bgvideo = () => {
   return (
     <video
-      className="bgVideo position-absolute"
+      className="bgVideo "
       autoPlay={1}
       muted={1}
       loop

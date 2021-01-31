@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+require("dotenv").config();
+
 app.use(cors());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 //connect to database
@@ -18,8 +20,17 @@ app.use("/login", require("./routes/login"));
 app.use("/match", require("./routes/match"));
 //image
 app.use("/img", require("./routes/upload"));
+//heroku route
+app.get("/", (req, res) => {
+  console.log("Hello to footstras123");
+});
+const Port = process.env.PORT || 8000;
 
-const Port = 8000;
+//STEP 3
+// if (process.env.node_env === "production") {
+//   app.use(express.static("client/build"));
+// }
+
 app.listen(Port, (err) => {
   if (err) {
     throw err.message;

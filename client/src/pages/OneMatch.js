@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getMatchs, editMatch, removeParti } from "../action/matchAction";
 import { loadAlluser } from "../action/authAction";
 import matchInfo from "../video/matchInfo.jpg";
@@ -12,7 +12,7 @@ const OneMatch = () => {
   const [owner, setOwner] = useState(null);
   const [user, setUser] = useState("");
   const [all, setAll] = useState([]);
-  const [parti, setParti] = useState([]);
+  // const [parti, setParti] = useState([]);
   const paramas = useParams();
   const id = paramas.id;
 
@@ -32,11 +32,11 @@ const OneMatch = () => {
   }, []);
 
   useEffect(() => {
-    setOneMatch(matchs.find((el) => el._id == id));
+    setOneMatch(matchs.find((el) => el._id === id));
   }, [matchs]);
 
   useEffect(() => {
-    setOneMatch(matchs.find((el) => el._id == id));
+    setOneMatch(matchs.find((el) => el._id === id));
   }, [oneMatch && oneMatch.participants]);
 
   useEffect(() => {
@@ -44,18 +44,18 @@ const OneMatch = () => {
       setUser(Auth.user);
     } else {
       {
-        oneMatch && setOwner(Auth.user.find((el) => el._id == oneMatch.owner));
+        oneMatch && setOwner(Auth.user.find((el) => el._id === oneMatch.owner));
       }
       setAll(Auth.user);
     }
   }, [Auth]);
 
-  useEffect(() => {
-    {
-      oneMatch &&
-        setParti(all.filter((el) => oneMatch.participants.includes(el._id)));
-    }
-  }, [matchs]);
+  // useEffect(() => {
+  //   {
+  //     oneMatch &&
+  //       setParti(all.filter((el) => oneMatch.participants.includes(el._id)));
+  //   }
+  // }, [matchs]);
   return (
     <>
       {oneMatch ? (
@@ -73,13 +73,13 @@ const OneMatch = () => {
                 </div>
                 <div className="w-100 mt-3 m-auto">
                   <h5 className="m-3">
-                    format: {oneMatch.format} vs {oneMatch.format}
+                    Format: {oneMatch.format} vs {oneMatch.format}
                   </h5>
                   <h5 className="m-3">
-                    date: le {oneMatch.date.replace("T", " à ")}
+                    Date: le {oneMatch.date.replace("T", " à ")}
                   </h5>
                   <h5 className="m-3">
-                    by:&nbsp;
+                    By:&nbsp;
                     <Link to={`/profil/${oneMatch.owner}`}>
                       {owner ? owner.name : "wait.."}
                     </Link>
