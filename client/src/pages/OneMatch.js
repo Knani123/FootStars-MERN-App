@@ -75,9 +75,8 @@ const OneMatch = () => {
                   <h5 className="m-3">
                     Format: {oneMatch.format} vs {oneMatch.format}
                   </h5>
-                  <h5 className="m-3">
-                    Date: le {oneMatch.date.replace("T", " à ")}
-                  </h5>
+                  <h5 className="m-3">Date: le {oneMatch.date[0]}</h5>
+                  <h5 className="m-3">L'heure: à {oneMatch.date[1]}:00</h5>
                   <h5 className="m-3">
                     By:&nbsp;
                     <Link to={`/profil/${oneMatch.owner}`}>

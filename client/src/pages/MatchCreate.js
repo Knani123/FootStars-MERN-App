@@ -5,6 +5,7 @@ import { addMatch } from "../action/matchAction";
 import { loadAlluser } from "../action/authAction";
 import build from "../video/build.PNG";
 import player from "../video/player.png";
+import MyCalender from "../components/MyCalender";
 const MatchCreate = () => {
   const [errors, setErrors] = useState([
     { msg: "Input is empty Create your Match" },
@@ -28,9 +29,25 @@ const MatchCreate = () => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const [info, setInfo] = useState({ name: "", date: "", format: "" });
+  const [Time, setTime] = useState(["", ""]);
+  const [info, setInfo] = useState({
+    name: "",
+    date: Time,
+    format: "",
+  });
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.id]: e.target.value });
+  };
+  const dateChange = (e) => {
+    Time[0] = e.target.value;
+    console.log(Time);
+    setTime(Time);
+  };
+  const timeChange = (e) => {
+    Time[1] = e.target.value;
+    console.log(Time);
+
+    setTime(Time);
   };
 
   const addNewMatch = (e) => {
@@ -64,12 +81,41 @@ const MatchCreate = () => {
         <label htmlFor="name">Date</label>
         <input
           required
-          type="datetime-local"
-          id="date"
+          type="date"
+          // id="date"
+          id="1"
           placeholder="date"
           className="form-control"
-          onChange={handleChange}
+          // onChange={handleChange}
+          onChange={dateChange}
         />
+        <label htmlFor="hour">L'heure:</label>
+        <select
+          required
+          // id="hour"
+          id="2"
+          placeholder="hour"
+          // onChange={handleChange}
+          onChange={timeChange}
+          className="form-control"
+        >
+          <option>--À quelle heure commence le match ?--</option>
+          <option value="8">8:00</option>
+          <option value="9">9:00</option>
+          <option value="10">10:00</option>
+          <option value="11">11:00</option>
+          <option value="12">12:00</option>
+          <option value="13">13:00</option>
+          <option value="14">14:00</option>
+          <option value="15">15:00</option>
+          <option value="16">16:00</option>
+          <option value="17">17:00</option>
+          <option value="18">18:00</option>
+          <option value="19">19:00</option>
+          <option value="20">20:00</option>
+          <option value="21">21:00</option>
+          <option value="22">22:00</option>
+        </select>
         <label htmlFor="format">Format</label>
         <select
           required
@@ -144,6 +190,7 @@ const MatchCreate = () => {
           <span className="sr-only">Next</span>
         </a>
       </div>
+      <MyCalender />
     </div>
   );
 };

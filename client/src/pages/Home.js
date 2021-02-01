@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import Icon from "../components/Icon";
 import Vitrine from "../components/Vitrine";
 import Bgfoot2 from "../components/Bgfoot2";
 import HomeComponent from "../components/homeComponent";
@@ -7,7 +9,7 @@ import Pub from "../components/pub";
 import "./page.css";
 
 const Home = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const auth = useSelector((state) => state.AuthReducer);
 
@@ -20,9 +22,27 @@ const Home = () => {
       {!auth.isAuth ? (
         <div>
           <Bgfoot2 />
+          <header
+            className="position-absolute"
+            style={{ top: "10vh", left: "50%", transform: "translate(-50%)" }}
+          >
+            <h1
+              className="font-weight-bold m-auto text-center "
+              style={{ width: "400px" }}
+            >
+              <Link to="/" className="text-decoration-none">
+                FootStars <Icon />
+              </Link>
+            </h1>
+          </header>
           <Vitrine />
-          <footer className="d-flex justify-content-center text-center fixed-bottom flex-wrap">
-            <h5 className="w-100 m-auto p-5">All rights reserved © 2021</h5>
+          <footer
+            className="d-flex justify-content-center text-center fixed-bottom flex-wrap"
+            style={{ bottom: "50px" }}
+          >
+            <h5 className="w-100 m-auto p-5 text-center">
+              All rights reserved © 2021
+            </h5>
           </footer>
         </div>
       ) : (

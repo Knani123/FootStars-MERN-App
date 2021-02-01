@@ -106,7 +106,7 @@ const NavTest = () => {
               <>
                 <Link className=" me-2 navi" to="/register">
                   <button className="btn btn-outline-info me-2" type="submit">
-                    Singup
+                    SignUp
                   </button>
                 </Link>
                 <Link className=" m-2 navi" to="/login">
@@ -114,7 +114,7 @@ const NavTest = () => {
                     className="btn btn-outline-success me-2"
                     type="submit"
                   >
-                    Singin
+                    SignIn
                   </button>
                 </Link>
               </>
