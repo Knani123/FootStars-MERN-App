@@ -23,7 +23,11 @@ const AllUsers = () => {
     setInfo({ [e.target.id]: e.target.value });
   };
   return (
-    <div className="container">
+    <div
+      className="container jumbotron"
+      style={{ paddingTop: "10px", minHeight: "80vh" }}
+    >
+      {" "}
       <div className="d-flex justify-content-center align-items-center flex-wrap ">
         <h1 className="text-center text-success">Players</h1>
         <input

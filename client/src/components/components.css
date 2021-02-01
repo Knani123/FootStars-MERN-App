@@ -44,7 +44,7 @@ transform: scale(1.1);
     transform: scale(1.3);
 }
 .cardMatch:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .cardUser:hover {
     transform: scale(1.1);

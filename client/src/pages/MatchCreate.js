@@ -190,7 +190,6 @@ const MatchCreate = () => {
           <span className="sr-only">Next</span>
         </a>
       </div>
-      <MyCalender />
     </div>
   );
 };
