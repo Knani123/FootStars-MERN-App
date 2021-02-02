@@ -54,6 +54,7 @@ router.post(
                     let newMatch = new Match({
                       ...req.body,
                       owner: req.userId,
+                      statue: "En attente",
                     });
                     newMatch
                       .save()
@@ -91,7 +92,13 @@ router.delete("/myMatch", AuthMiddleware, (req, res) => {
     .catch((err) => console.log(err.message));
 });
 
-//add Participant
+//delet match by id
+router.delete("/:id", AuthMiddleware, (req, res) => {
+  Match.deleteOne({ _id: req.params.id })
+    .then(() => res.send({ msg: "Your match is delete" }))
+    .catch((err) => console.log(err.message));
+});
+
 //edit participant
 router.put("/:id", AuthMiddleware, (req, res) => {
   Match.findByIdAndUpdate(
@@ -114,6 +121,27 @@ router.put("/:id", AuthMiddleware, (req, res) => {
 });
 //remove participant 2
 router.put("/parti/:id", AuthMiddleware, (req, res) => {
+  Match.findByIdAndUpdate(
+    req.params.id,
+    { $set: { ...req.body } },
+    (err, data) => {
+      if (err) {
+        return res.send(500).send({ msg: "Server Errors" });
+      } else {
+        Match.findById(req.params.id)
+          .then((match) => {
+            res.status(200).send(match);
+          })
+          .catch((err) => {
+            res.send(500).send({ msg: "Server Errors" });
+          });
+      }
+    }
+  );
+});
+//modif match
+router.put("/admin/:id", AuthMiddleware, (req, res) => {
+  console.log(req.body);
   Match.findByIdAndUpdate(
     req.params.id,
     { $set: { ...req.body } },

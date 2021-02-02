@@ -7,19 +7,23 @@
     top: 0;
     opacity: 1;
 }
- .imageHome {
-border-radius: 50%;
-   max-width: 200px;
-   height: 150px;
-   cursor: pointer;
+
+.imageHome {
+    border-radius: 50%;
+    max-width: 200px;
+    height: 150px;
+    cursor: pointer;
 }
-.compHome:hover{
-transform: scale(1.1);
+
+.compHome:hover {
+    transform: scale(1.1);
 }
-.imgPub{
-    width: 50% ;
+
+.imgPub {
+    width: 50%;
     height: 200px;
 }
+
 .kiki {
     top: 175px;
     padding: 3px;
@@ -43,34 +47,68 @@ transform: scale(1.1);
 .cami:hover {
     transform: scale(1.3);
 }
+
 .cardMatch:hover {
     transform: scale(1.05);
 }
+
 .cardUser:hover {
     transform: scale(1.1);
 }
 
 @media screen and (max-width: 992px) {
-.imgPub {
-    width: 50%;
-    height: 150px;
-}
- .imageHome {
-     max-width: 140px;
-     height: 100px;
- }
+    .imgPub {
+        width: 50%;
+        height: 150px;
+    }
+
+    .imageHome {
+        max-width: 140px;
+        height: 100px;
+    }
+
     .kiki {
         top: 175px;
         left: 65px;
 
     }
 }
+
 @media screen and (max-width: 768px) {
- .kiki {
-     top: 175px;
- }
- #imgAva {
-     border-radius: 50%;
- }
+    .kiki {
+        top: 175px;
+    }
+
+    #imgAva {
+        border-radius: 50%;
+    }
 }
 
+
+.confirmMatch {
+    background-color: green;
+    transition: 0.5s;
+    float: left;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.confirmMatch:hover {
+    background-color: greenyellow
+}
+
+.removeMatch {
+    background-color: red;
+    transition: 0.5s;
+    float: right;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.removeMatch:hover {
+    background-color: #c23616
+}

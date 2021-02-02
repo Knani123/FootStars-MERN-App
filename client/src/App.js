@@ -10,7 +10,7 @@ import NavTest from "./NavTest";
 import AllUsers from "./pages/AllUsers";
 import Matchs from "./pages/Matchs";
 import Notif from "./components/Notif";
-
+import Contact from "./pages/Contact";
 import PrivateRoute from "./pages/PrivateRoute";
 import OneMatch from "./pages/OneMatch";
 import Load from "./components/Load";
@@ -30,6 +30,7 @@ function App() {
         <PrivateRoute exact path="/Matchs" component={Matchs} />
         <PrivateRoute exact path="/Matchs/:id" component={OneMatch} />
         <PrivateRoute exact path="/createMatch" component={MatchCreate} />
+        <Route exact path="/Contact" component={Contact} />
         <PrivateRoute exact path="/load" component={Load} />
       </Switch>
     </Router>

@@ -5,7 +5,7 @@ import { addMatch } from "../action/matchAction";
 import { loadAlluser } from "../action/authAction";
 import build from "../video/build.PNG";
 import player from "../video/player.png";
-import MyCalender from "../components/MyCalender";
+
 const MatchCreate = () => {
   const [errors, setErrors] = useState([
     { msg: "Input is empty Create your Match" },
@@ -40,13 +40,10 @@ const MatchCreate = () => {
   };
   const dateChange = (e) => {
     Time[0] = e.target.value;
-    console.log(Time);
     setTime(Time);
   };
   const timeChange = (e) => {
     Time[1] = e.target.value;
-    console.log(Time);
-
     setTime(Time);
   };
 
@@ -156,13 +153,28 @@ const MatchCreate = () => {
       >
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img className="d-block w-100 " src={build} alt="First slide" />
+            <img
+              className="d-block w-100 "
+              src={build}
+              alt="First slide"
+              style={{ maxHeight: "200px", maxWidth: "450px" }}
+            />
+          </div>
+          <div className="carousel-item m-auto" style={{ maxWidth: "600px" }}>
+            <img
+              className="d-block w-100 "
+              src="https://img.fifa.com/image/upload/t_l4/sluugjllphb92fexlvcy.jpg"
+              alt="Second slide"
+              style={{ maxHeight: "200px", maxWidth: "450px" }}
+            />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100 " src={player} alt="Second slide" />
-          </div>
-          <div className="carousel-item">
-            <img className="d-block w-100 " src={player} alt="Third slide" />
+            <img
+              className="d-block w-100 "
+              src="https://www.letelegramme.fr/images/2020/11/25/diego-maradona-s-est-eteint-mercredi-25-novembre-mais-sa_5413834_676x429p.jpg?v=1"
+              alt="Third slide"
+              style={{ maxHeight: "200px", maxWidth: "450px" }}
+            />
           </div>
         </div>
         <a
@@ -172,7 +184,7 @@ const MatchCreate = () => {
           data-slide="prev"
         >
           <span
-            className="carousel-control-prev-icon bg-info"
+            className="carousel-control-prev-icon "
             aria-hidden="true"
           ></span>
           <span className="sr-only">Previous</span>
@@ -184,7 +196,7 @@ const MatchCreate = () => {
           data-slide="next"
         >
           <span
-            className="carousel-control-next-icon  bg-success"
+            className="carousel-control-next-icon"
             aria-hidden="true"
           ></span>
           <span className="sr-only">Next</span>

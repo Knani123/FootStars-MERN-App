@@ -4,6 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import { loginUser } from "../action/authAction";
 import Icon from "../components/Icon";
 import stade2 from "../video/stade2.jpeg";
+
 import "./page.css";
 
 const Login = () => {

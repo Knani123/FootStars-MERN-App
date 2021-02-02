@@ -1,17 +1,19 @@
-
-*{
+* {
     margin: 0;
-    padding:0;
+    padding: 0;
 }
+
 .band {
     font-size: 60px;
     color: greenyellow;
 
 }
+
 .para {
     font-size: 30px;
     color: wheat;
 }
+
 .vitrine {
     position: absolute;
     top: 40vh;
@@ -19,16 +21,18 @@
     transform: translate(-50%);
 }
 
-.homeLog{
+.homeLog {
     height: 115vh;
     width: 100%;
-    background:url(../video/home.png);
+    background: url(../video/home.png);
 
     background-size: cover;
 }
-.figAdd:hover{
+
+.figAdd:hover {
     transform: scale(1.1);
 }
+
 @media screen and (max-width: 990px) {
     .stade {
         display: none;
@@ -37,14 +41,17 @@
     .logi {
         text-align: center;
     }
+
     .band {
         font-size: 30px;
     }
+
     .para {
         font-size: 15px;
     }
 
 }
+
 @media screen and (max-width: 470px) {
 
     .band {
@@ -58,17 +65,18 @@
 
 }
 
-.fromR{
+.fromR {
     width: 360px;
     height: 50px;
 }
+
 body {
     margin: 0;
     padding: 0;
 }
 
 #footer {
-    margin-top:20px ;
+    margin-top: 20px;
     height: 240px;
     background-color: black;
     color: white;
@@ -121,4 +129,34 @@ a:hover {
     width: 100vw;
     text-align: center;
     float: left;
+}
+
+.box {
+    background-color: #81ecec;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxBtn {
+    color: #4cd137;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #81ecec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.txt{
+    border:none;
+    background:none;
+    outline: none;
+    padding: 0;
+    font-size: 16px;
+    transition: 0.4s;
+
 }

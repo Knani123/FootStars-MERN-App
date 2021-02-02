@@ -29,15 +29,20 @@ const AllUsers = () => {
     >
       {" "}
       <div className="d-flex justify-content-center align-items-center flex-wrap ">
-        <h1 className="text-center text-success">Players</h1>
-        <input
-          type="search"
-          className=" alert-success mx-2 text-center"
-          placeholder="search your match"
-          value={info.val}
-          id="val"
-          onChange={handleChange}
-        />
+        {/* <h1 className="text-center text-success">Players</h1> */}
+        <div className="box mb-5 mt-3 border  shadow">
+          <input
+            type="search"
+            className=" txt"
+            placeholder="Tapez pour rechercher"
+            value={info.val}
+            id="val"
+            onChange={handleChange}
+          />
+          <a href="#" className="boxBtn">
+            <i class="fas fa-futbol"></i>
+          </a>
+        </div>
       </div>
       {Auth.user && (
         <div className="row text-center ">

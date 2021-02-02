@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const MatchSchema = new Schema({
   name: { type: String, required: true },
+  statue: { type: String, required: false },
   participants: { type: [], required: false },
   format: { type: String, required: true },
   date: { type: Schema.Types.Mixed, required: true },

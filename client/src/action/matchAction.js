@@ -101,11 +101,11 @@ export const removeParti = (id, info) => (dispatch) => {
     );
 };
 
-//get my match
+//delete my match
 export const deleteMyMatchs = () => (dispatch) => {
   axios
     .delete("/match/myMatch")
-    .then((res) => {
+    .then(() => {
       dispatch(getMyMatchs());
     })
     .catch((err) =>
@@ -114,4 +114,17 @@ export const deleteMyMatchs = () => (dispatch) => {
         payload: err.response.data,
       })
     );
+};
+//delete match by id
+export const deleteMatch = (id) => (dispatch) => {
+  axios.delete(`/match/${id}`).then(() => {
+    dispatch(getMatchs());
+  });
+};
+//delete match by id
+export const updateMatch = (id, info) => (dispatch) => {
+  console.log(info);
+  axios.put(`/match/admin/${id}`, info).then(() => {
+    dispatch(getMatchs());
+  });
 };

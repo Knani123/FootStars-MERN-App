@@ -9,11 +9,6 @@ const NavTest = () => {
   const location = useLocation();
   const auth = useSelector((state) => state.AuthReducer);
   const myUser = useSelector((state) => state.UserNow);
-  console.log("myUser", myUser.name);
-
-  console.log(
-    location.pathname == "/register" || location.pathname == "/login"
-  );
   const dispatch = useDispatch();
   return (
     <div
@@ -25,7 +20,7 @@ const NavTest = () => {
     >
       <nav
         className="navbar navbar-expand-lg navbar-light shadow bg-light"
-        style={{ padding: "5px" }}
+        style={{ padding: "0px" }}
       >
         <NavLink
           exact
@@ -80,26 +75,37 @@ const NavTest = () => {
                     <i class="fas fa-users"></i> Players
                   </NavLink>
                 </li>
+
+                <li className="nav-item">
+                  <NavLink
+                    activeStyle={{ color: "green" }}
+                    className="nav-link navi font-weight-bold alert-success btn m-1 rounded-pill"
+                    to="/Matchs"
+                    tabIndex="-1"
+                    aria-disabled={false}
+                    style={{ padding: "5px" }}
+                  >
+                    <img
+                      src={stadeLogo}
+                      width="30px"
+                      style={{ borderRadius: "50%" }}
+                    />{" "}
+                    Matchs
+                  </NavLink>
+                </li>
               </>
             )}
-
-            <li className="nav-item">
-              <NavLink
-                activeStyle={{ color: "green" }}
-                className="nav-link navi font-weight-bold alert-success btn m-1 rounded-pill"
-                to="/Matchs"
-                tabIndex="-1"
-                aria-disabled={false}
-                style={{ padding: "5px" }}
-              >
-                <img
-                  src={stadeLogo}
-                  width="30px"
-                  style={{ borderRadius: "50%" }}
-                />{" "}
-                Matchs
-              </NavLink>
-            </li>
+            {true && (
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link navi font-weight-bold alert-warning btn m-1 rounded-pill"
+                  to="/Contact"
+                  activeStyle={{ color: "green" }}
+                >
+                  <i className="fas fa-file-signature"></i> Contact
+                </NavLink>
+              </li>
+            )}
           </ul>
           <form className="form-inline my-2 my-lg-0">
             {!auth.isAuth ? (

@@ -29,26 +29,40 @@ const Matchs = () => {
   const handleDate = (e) => {
     setDay({ ...day, [e.target.id]: e.target.value });
   };
+
   return (
     <div
       className="container jumbotron"
       style={{ paddingTop: "10px", minHeight: "80vh" }}
     >
-      <div className="mb-5">
-        <h1 className="text-center text-success">Matchs</h1>
+      <div className="mb-5 mt-3 border  shadow">
+        {/* <h1 className="text-center text-success">Matchs</h1> */}
         <div
-          className="d-flex  justify-content-center align-items-center w-75 m-auto flex-wrap"
+          className="d-flex  justify-content-center align-items-center  m-auto flex-wrap"
           // style={{ height: "40px" }}
         >
-          <input
-            type="search"
-            className=" alert-success mx-2 text-center"
-            placeholder="search your match"
-            value={info.val}
-            id="val"
-            onChange={handleChange}
-          />
-          <input type="date" id="date" onChange={handleDate} isClearable />
+          <div className="box">
+            <input
+              type="search"
+              className=" txt"
+              placeholder="Tapez pour rechercher"
+              value={info.val}
+              id="val"
+              onChange={handleChange}
+            />
+            <a href="#" className="boxBtn">
+              <i class="fas fa-futbol"></i>
+            </a>
+          </div>
+          <div className="box" style={{ backgroundColor: "#4cd137" }}>
+            <input
+              className=" txt"
+              type="date"
+              id="date"
+              onChange={handleDate}
+              isClearable
+            />
+          </div>
           <Link to="/createMatch" className="btn btn-warning m-2">
             créer votre match
           </Link>
@@ -64,7 +78,7 @@ const Matchs = () => {
             )
             .map((el, i) => <CardMatch el={el} key={i} />)
         ) : (
-          <h1>wait....</h1>
+          <h1>Pas des matchs disponibles....</h1>
         )}
       </div>
     </div>
