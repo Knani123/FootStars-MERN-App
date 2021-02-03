@@ -106,6 +106,17 @@ const NavTest = () => {
                 </NavLink>
               </li>
             )}
+            {true && (
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link navi font-weight-bold alert-secondary btn m-1 rounded-pill"
+                  to="/admin"
+                  activeStyle={{ color: "green" }}
+                >
+                  <i className="fas fa-file-signature"></i> Admin
+                </NavLink>
+              </li>
+            )}
           </ul>
           <form className="form-inline my-2 my-lg-0">
             {!auth.isAuth ? (

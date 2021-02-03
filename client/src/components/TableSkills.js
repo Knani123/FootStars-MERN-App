@@ -64,7 +64,7 @@ const TableSkills = ({ auth, edit }) => {
               {edit && (
                 <div>
                   <button className="btn btn-warning " onClick={openModal}>
-                    Modifier
+                    <i className="fas fa-user-edit"></i> Modifier
                   </button>{" "}
                   <Modal
                     isOpen={modalIsOpen}

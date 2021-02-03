@@ -6,6 +6,7 @@ import { deleteMyMatchs } from "../action/matchAction";
 import Modal from "react-modal";
 import { editUser } from "../action/authAction";
 import "./components.css";
+
 import axios from "axios";
 const customStyles = {
   content: {
@@ -148,7 +149,7 @@ const CardProfil = ({ auth, myMatch }) => {
           className="btn btn-outline-info m-1"
           title="Les invitations pour regoindre un match"
         >
-          Les invitations
+          <i className="fas fa-poll-h"></i> Invitations
         </button>
         <Modal
           isOpen={modalIsOpen}

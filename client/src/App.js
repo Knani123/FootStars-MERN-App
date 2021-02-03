@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import PrivateRoute from "./pages/PrivateRoute";
 import OneMatch from "./pages/OneMatch";
 import Load from "./components/Load";
+import Admin from "./pages/Admin";
 function App() {
   return (
     // <div className="container">
@@ -31,6 +32,7 @@ function App() {
         <PrivateRoute exact path="/Matchs/:id" component={OneMatch} />
         <PrivateRoute exact path="/createMatch" component={MatchCreate} />
         <Route exact path="/Contact" component={Contact} />
+        <Route exact path="/admin" component={Admin} />
         <PrivateRoute exact path="/load" component={Load} />
       </Switch>
     </Router>

@@ -142,6 +142,24 @@ export const editByidUser = (id, info) => (dispatch) => {
       });
     });
 };
+//edit user msg by id
+export const editByidUserMsg = (id, info) => (dispatch) => {
+  axios
+    .put(`/login/msg/${id}`, info)
+    .then((res) => {
+      console.log(res);
+      dispatch({
+        type: EDIT_BY_ID_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: EDIT_BY_ID_FAIL,
+        payload: err.response,
+      });
+    });
+};
 //edit user by id only
 export const editOnlyidUser = (id, info) => (dispatch) => {
   axios

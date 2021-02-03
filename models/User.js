@@ -5,6 +5,7 @@ const UserSchema = new Schema({
   name: { type: String, required: true },
   avatar: { type: String, required: true },
   poste: { type: String, required: false },
+  msg: { type: [], required: false },
   pied_fort: { type: String, required: false },
   age: { type: Number, required: false },
   poid: { type: Number, required: false },

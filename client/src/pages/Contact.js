@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Icon from "../components/Icon";
 import GoogleMap from "../components/GoogleMap";
+import { editByidUserMsg } from "../action/authAction";
+
 const Contact = () => {
+  const dispatch = useDispatch();
+  const [msg, setMsg] = useState({ email: "", message: "" });
+  console.log(msg);
+  const handleChange = (e) => {
+    setMsg({ ...msg, [e.target.id]: e.target.value });
+    setMsg({ email: "", message: "" });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(editByidUserMsg("601b15469986e23024e94219", msg));
+    setMsg({ email: "", message: "" });
+  };
   return (
     <div className=" ">
       <h1
@@ -14,7 +29,8 @@ const Contact = () => {
         </Link>
       </h1>
       <div className="  d-flex flex-wrap justify-content-center vh-100">
-        <div
+        <form
+          onSubmit={handleSubmit}
           className=" shadow-lg border p-4 m-3 h-75"
           style={{ width: "400px" }}
         >
@@ -31,9 +47,11 @@ const Contact = () => {
             <input
               style={{ width: "360px", height: "50px" }}
               className=" form-control"
-              type="text"
+              type="email"
               id="email"
               placeholder="ex: user@gmail.com"
+              onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -43,6 +61,8 @@ const Contact = () => {
               style={{ width: "360px", height: "200px" }}
               id="message"
               placeholder="Taper votre message"
+              onChange={handleChange}
+              required
             ></textarea>
           </div>
           <button
@@ -51,7 +71,7 @@ const Contact = () => {
           >
             Envoyer
           </button>
-        </div>
+        </form>
         <div
           className="shadow-lg p-4 m-3 h-75  border"
           style={{ width: "530px" }}

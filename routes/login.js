@@ -98,6 +98,29 @@ router.put("/user/not/:id", AuthMiddleware, (req, res) => {
   );
 });
 
+//edit by id message
+router.put("/msg/:id", (req, res) => {
+  console.log("route edit msg", req.body);
+
+  User.findByIdAndUpdate(
+    req.params.id,
+    { $push: { msg: [req.body] } },
+    (err, data) => {
+      if (err) {
+        return res.status(500).send({ msg: "Server Errors" });
+      } else {
+        User.findById(req.params.id)
+          .then((user) => {
+            res.status(200).send(user);
+          })
+          .catch((err) => {
+            res.status(500).send({ msg: "Server Errors" });
+          });
+      }
+    }
+  );
+});
+
 //edit by id
 router.put("/user/:id", AuthMiddleware, (req, res) => {
   User.findByIdAndUpdate(

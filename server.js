@@ -26,11 +26,6 @@ app.get("/", (req, res) => {
 });
 const Port = process.env.PORT || 8000;
 
-//STEP 3
-// if (process.env.node_env === "production") {
-//   app.use(express.static("client/build"));
-// }
-
 app.listen(Port, (err) => {
   if (err) {
     throw err.message;
