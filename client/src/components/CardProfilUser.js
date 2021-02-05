@@ -58,7 +58,7 @@ const CardProfilUser = ({ auth }) => {
                       })
                     );
               }
-              history.push(`/load`);
+              // history.push(`/load`);
             }}
             className={
               !auth.user.notif.includes(myMatch[0]._id)

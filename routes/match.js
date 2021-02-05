@@ -32,7 +32,10 @@ router.post(
             });
           } else {
             Match.find({ date: req.body.date }).then((match) => {
-              if (match.length) {
+              if (
+                match[0].date[0] == req.body.date[0] &&
+                match[0].date[1] == req.body.date[1]
+              ) {
                 return res.status(400).send({
                   errors: [
                     {

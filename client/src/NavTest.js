@@ -9,6 +9,7 @@ const NavTest = () => {
   const location = useLocation();
   const auth = useSelector((state) => state.AuthReducer);
   const myUser = useSelector((state) => state.UserNow);
+  console.log(myUser._id);
   const dispatch = useDispatch();
   return (
     <div
@@ -95,25 +96,14 @@ const NavTest = () => {
                 </li>
               </>
             )}
-            {true && (
-              <li className="nav-item">
+            {myUser._id !== "601b15469986e23024e94219" && (
+              <li className="nav-item  ">
                 <NavLink
                   className="nav-link navi font-weight-bold alert-warning btn m-1 rounded-pill"
                   to="/Contact"
                   activeStyle={{ color: "green" }}
                 >
                   <i className="fas fa-file-signature"></i> Contact
-                </NavLink>
-              </li>
-            )}
-            {true && (
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link navi font-weight-bold alert-secondary btn m-1 rounded-pill"
-                  to="/admin"
-                  activeStyle={{ color: "green" }}
-                >
-                  <i className="fas fa-file-signature"></i> Admin
                 </NavLink>
               </li>
             )}
@@ -139,6 +129,7 @@ const NavTest = () => {
               <Link className=" me-2 navi" to="/">
                 <button
                   onClick={() => {
+                    myUser._id = "010101010101";
                     dispatch(logOut());
                   }}
                   className="btn btn-danger logOutbtn"

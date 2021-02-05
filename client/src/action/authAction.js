@@ -130,10 +130,11 @@ export const editByidUser = (id, info) => (dispatch) => {
   axios
     .put(`/login/user/not/${id}`, info)
     .then((res) => {
-      dispatch({
-        type: EDIT_BY_ID_SUCCESS,
-        payload: res.data,
-      });
+      // dispatch({
+      //   type: EDIT_BY_ID_SUCCESS,
+      //   payload: res.data,
+      // });
+      dispatch(loadAlluser());
     })
     .catch((err) => {
       dispatch({
@@ -147,11 +148,12 @@ export const editByidUserMsg = (id, info) => (dispatch) => {
   axios
     .put(`/login/msg/${id}`, info)
     .then((res) => {
-      console.log(res);
+      console.log("res . data", res.data);
       dispatch({
         type: EDIT_BY_ID_SUCCESS,
         payload: res.data,
       });
+      // dispatch(loadAlluser());
     })
     .catch((err) => {
       dispatch({
@@ -165,10 +167,11 @@ export const editOnlyidUser = (id, info) => (dispatch) => {
   axios
     .put(`/login/user/${id}`, info)
     .then((res) => {
-      dispatch({
-        type: EDIT_ONLY_ID_SUCCESS,
-        payload: res.data,
-      });
+      // dispatch({
+      //   type: EDIT_ONLY_ID_SUCCESS,
+      //   payload: res.data,
+      // });
+      dispatch(loadAlluser());
     })
     .catch((err) => {
       dispatch({

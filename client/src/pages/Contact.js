@@ -4,22 +4,21 @@ import { Link } from "react-router-dom";
 import Icon from "../components/Icon";
 import GoogleMap from "../components/GoogleMap";
 import { editByidUserMsg } from "../action/authAction";
+import { v4 as uuidv4 } from "uuid";
 
 const Contact = () => {
   const dispatch = useDispatch();
-  const [msg, setMsg] = useState({ email: "", message: "" });
-  console.log(msg);
+  const [msg, setMsg] = useState({ email: "", message: "", id: uuidv4() });
   const handleChange = (e) => {
     setMsg({ ...msg, [e.target.id]: e.target.value });
-    setMsg({ email: "", message: "" });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(editByidUserMsg("601b15469986e23024e94219", msg));
-    setMsg({ email: "", message: "" });
+    setMsg({ email: "", message: "", id: uuidv4() });
   };
   return (
-    <div className=" ">
+    <div className="jumbotron">
       <h1
         className="font-weight-bold mx-auto text-center  "
         style={{ width: "400px" }}
@@ -28,10 +27,10 @@ const Contact = () => {
           FootStars <Icon />
         </Link>
       </h1>
-      <div className="  d-flex flex-wrap justify-content-center vh-100">
+      <div className="  d-flex flex-wrap justify-content-center vh-100 ">
         <form
           onSubmit={handleSubmit}
-          className=" shadow-lg border p-4 m-3 h-75"
+          className=" shadow-lg border p-4 m-3 h-75 alert-warning "
           style={{ width: "400px" }}
         >
           <h5>
@@ -49,6 +48,7 @@ const Contact = () => {
               className=" form-control"
               type="email"
               id="email"
+              value={msg.email}
               placeholder="ex: user@gmail.com"
               onChange={handleChange}
               required
@@ -57,6 +57,7 @@ const Contact = () => {
           <div className="form-group">
             <label htmlFor="message">Votre message:</label>
             <textarea
+              value={msg.message}
               className="p-2"
               style={{ width: "360px", height: "200px" }}
               id="message"
@@ -73,7 +74,7 @@ const Contact = () => {
           </button>
         </form>
         <div
-          className="shadow-lg p-4 m-3 h-75  border"
+          className="shadow-lg p-4 m-3 h-75  border alert-light"
           style={{ width: "530px" }}
         >
           <p>

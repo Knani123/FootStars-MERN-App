@@ -78,7 +78,9 @@ const Matchs = () => {
             )
             .map((el, i) => <CardMatch el={el} key={i} />)
         ) : (
-          <h1>Pas des matchs disponibles....</h1>
+          <h2 className="alert-primary p-2 rounded w-50 m-auto border shadow">
+            Pas des matchs disponibles....
+          </h2>
         )}
       </div>
     </div>

@@ -55,8 +55,7 @@ const Login = () => {
             <div className="form-group">
               <label htmlFor="logTel">Votre nom SVP !</label>
               <input
-                style={{ width: "360px", height: "50px" }}
-                className=" form-control"
+                className="formi  form-control"
                 onFocus={handleFocus}
                 type="text"
                 id="email"
@@ -68,8 +67,7 @@ const Login = () => {
             <div className="form-group">
               <label htmlFor="logPassword">Mot de passe</label>
               <input
-                style={{ width: "360px", height: "50px" }}
-                className="form-control"
+                className="formi form-control"
                 onFocus={handleFocus}
                 type="text"
                 id="password"

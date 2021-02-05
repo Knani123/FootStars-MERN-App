@@ -51,9 +51,21 @@
     }
 
 }
+.matchD {
+    width: 400px;
+    
+}
+.formi{
+           
+     width: 360px;
+    height: 50px;
+         
 
+}
 @media screen and (max-width: 470px) {
-
+.matchD{
+    width: 350px;
+}
     .band {
         font-size: 20px;
     }
@@ -159,4 +171,16 @@ a:hover {
     font-size: 16px;
     transition: 0.4s;
 
+}
+.removeMSG {
+    background-color: red;
+    transition: 0.5s;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.removeMSG:hover {
+    background-color: #c23616
 }
