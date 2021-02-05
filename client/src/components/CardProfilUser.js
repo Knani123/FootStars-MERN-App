@@ -72,19 +72,22 @@ const CardProfilUser = ({ auth }) => {
               </span>
             ) : (
               <span>
-                Annuler l'invitation <i class="fas fa-user-times"></i>
+                <i class="fas fa-user-times"></i> Annuler l'invitation
               </span>
             )}
           </button>
         ) : (
           <button
+            title="
+              Inviter le pour votre match"
             className="btn btn-success"
             onClick={() => {
               alert("Create your Match before");
               history.push("/createMatch");
             }}
           >
-            invit le
+            <i className="fas fa-plus-circle"></i>
+            Inviter le
           </button>
         )}
       </div>

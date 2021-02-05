@@ -22,7 +22,7 @@ const CardProfil = ({ auth, myMatch }) => {
   const dispatch = useDispatch();
 
   const [file, setFile] = useState(null);
-  const [btnName, setBtnName] = useState("....");
+  const [btnName, setBtnName] = useState("...");
 
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
@@ -152,7 +152,12 @@ const CardProfil = ({ auth, myMatch }) => {
                   onClick={() => {
                     stableDispatch(deleteMyMatchs());
                     stableDispatch(getMatchs());
-                    alert("Your match is deleted");
+                    if (!myMatch[0]) {
+                      alert("You must create match before");
+                      history.push("/createMatch");
+                    } else {
+                      alert("Your match is deleted");
+                    }
                     // history.push("/load");
                   }}
                   className="btn btn-danger m-1"

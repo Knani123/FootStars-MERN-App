@@ -125,16 +125,26 @@ const OneMatch = () => {
                           // dispatch(getMatchs());
                         }}
                       >
-                        {!oneMatch.participants.includes(user._id)
-                          ? "Participer"
-                          : "Quitter"}
+                        {!oneMatch.participants.includes(user._id) ? (
+                          <>
+                            {" "}
+                            <i class="fas fa-sign-in-alt"></i> Participer
+                          </>
+                        ) : (
+                          <>
+                            {" "}
+                            <i class="fas fa-outdent"></i> Quitter
+                          </>
+                        )}
                       </button>
                     </div>
                   )}
                 </div>
               </div>
               <div className="col border border-success mt-3 vh-75">
-                <h1 className="text-center">Liste de participants</h1>
+                <h1 className="text-center alert alert-success border border-dark">
+                  Liste de participants
+                </h1>
                 <div className="d-flex flex-wrap justify-content-center">
                   {all
                     .filter((el) => oneMatch.participants.includes(el._id))

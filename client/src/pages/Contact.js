@@ -16,6 +16,7 @@ const Contact = () => {
     e.preventDefault();
     dispatch(editByidUserMsg("601b15469986e23024e94219", msg));
     setMsg({ email: "", message: "", id: uuidv4() });
+    alert("message envoyé");
   };
   return (
     <div className="jumbotron">

@@ -113,7 +113,7 @@ const TableUpdate = ({ skils, closeModal }) => {
             <td>
               {true && (
                 <button className="btn btn-success " onClick={handleConfirm}>
-                  Confirm
+                  <i className="fas fa-check-double"></i> Confirm
                 </button>
               )}
             </td>

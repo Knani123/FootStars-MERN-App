@@ -15,6 +15,7 @@ router.post(
     body("date").notEmpty(),
   ],
   (req, res) => {
+    console.log(req.body.date);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).send({ errors: errors.array() });
@@ -33,13 +34,14 @@ router.post(
           } else {
             Match.find({ date: req.body.date }).then((match) => {
               if (
+                match[0] &&
                 match[0].date[0] == req.body.date[0] &&
                 match[0].date[1] == req.body.date[1]
               ) {
                 return res.status(400).send({
                   errors: [
                     {
-                      msg: "Ce date est reservé",
+                      msg: "La date a été déjà réservée",
                     },
                   ],
                 });
@@ -77,7 +79,7 @@ router.post(
 //get all Matchs
 router.get("/", AuthMiddleware, (req, res) => {
   Match.find()
-    .sort({ _id: -1 })
+    .sort({ create_date: -1 })
     .then((matchs) => res.send(matchs))
     .catch((err) => res.status(500).send(err.msg));
 });

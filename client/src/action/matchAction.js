@@ -47,15 +47,19 @@ export const getMyMatchs = () => (dispatch) => {
     );
 };
 export const addMatch = (info) => (dispatch) => {
+  console.log("addMatch add info", info);
   axios
     .post("/match", info)
     .then((res) => {
+      console.log("addMatch add info", res);
+
       dispatch({
         type: ADD_MATCH,
         payload: res.data,
       });
     })
     .catch((err) => {
+      console.log(err);
       err.response
         ? dispatch({
             type: ADD_MATCH_FAIL,
@@ -63,7 +67,7 @@ export const addMatch = (info) => (dispatch) => {
           })
         : dispatch({
             type: ADD_MATCH_FAIL,
-            payload: [{ msg: "No error" }],
+            payload: [{ msg: "Le match est bien ajouté " }],
           });
     });
 };

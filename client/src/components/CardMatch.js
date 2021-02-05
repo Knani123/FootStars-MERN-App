@@ -69,7 +69,7 @@ const CardMatch = ({ el }) => {
             to={el._id ? `/Matchs/${el._id}` : "/match"}
             className="btn btn-primary"
           >
-            Match info
+            Match infos
           </Link>
         </div>
       </Link>

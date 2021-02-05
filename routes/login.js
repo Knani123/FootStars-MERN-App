@@ -57,6 +57,7 @@ router.get("/", AuthMiddleware, (req, res) => {
 router.get("/all", AuthMiddleware, (req, res) => {
   User.find()
     .select("-password -__v")
+    .sort({ _id: -1 })
     .then((users) => res.status(200).send(users))
     .catch((err) => {
       res.send(500).send({ msg: "Server Errors" });
